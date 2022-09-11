@@ -1,9 +1,12 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+import {useNavigate} from "react-router-dom";
 
 dotenv.config();
 
 export function sendVerificationMail({toMailId,userId}){
+
+    let navigate= useNavigate();
 
     return new Promise((res,rej) => {
         const transporter = nodemailer.createTransport({
@@ -19,12 +22,21 @@ export function sendVerificationMail({toMailId,userId}){
             from:process.env.GOOGLE_USER,
             to:toMailId,
             subject:"Account Activation",
+            // html:`<form method="PUT">
+            // <h3>Hello,</h3>
+            // <p>Thank you for registering with us.</p>
+            // <p>To activate your account, please click on the below li
+            // nk..</p>
+            // <p><a target="_blank" href=${process.env.DOMAIN}/activate/user/${userId}>Click here to activate</a></p>
+            // <p>Regards,</p>
+            // <p>Application Team</p>
+            // </form>`
             html:`<form method="PUT">
             <h3>Hello,</h3>
             <p>Thank you for registering with us.</p>
             <p>To activate your account, please click on the below li
             nk..</p>
-            <p><a target="_blank" href=${process.env.DOMAIN}/activate/user/${userId}>Click here to activate</a></p>
+            <p><button onClick={() => navigate(${process.env.DOMAIN}/activate/user/${userId})}></p>
             <p>Regards,</p>
             <p>Application Team</p>
             </form>`
