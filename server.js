@@ -9,10 +9,10 @@ import short from 'short-uuid';
 dotenv.config();
 
 const app=express();
-const PORT=process.env.PORT;
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
+const PORT=process.env.PORT;
 const MONGO_URL = process.env.MONGO_URL;
 
 async function createConnection(){
