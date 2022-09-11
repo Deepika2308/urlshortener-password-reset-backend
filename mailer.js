@@ -22,8 +22,7 @@ export function sendVerificationMail({toMailId,userId}){
             html:`<form method="PUT">
             <h3>Hello,</h3>
             <p>Thank you for registering with us.</p>
-            <p>To activate your account, please click on the below li
-            nk..</p>
+            <p>To activate your account, please click on the below link..</p>
             <p><a target="_blank" href=${process.env.DOMAIN}/activate/user/${userId}>Click here to activate</a></p>
             <p>Regards,</p>
             <p>Application Team</p>
