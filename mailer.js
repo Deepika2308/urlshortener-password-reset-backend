@@ -1,8 +1,13 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 import {useNavigate} from "react-router-dom";
+import cors from 'cors';
+import express from 'express';
 
 dotenv.config();
+
+const app=express();
+app.use(cors());
 
 export function sendVerificationMail({toMailId,userId}){
 
