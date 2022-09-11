@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 export function sendVerificationMail({toMailId,userId}){
@@ -23,7 +24,7 @@ export function sendVerificationMail({toMailId,userId}){
             <p>Thank you for registering with us.</p>
             <p>To activate your account, please click on the below li
             nk..</p>
-            <p><Link to=${process.env.DOMAIN}/activate/user/${userId}>Click here to activate</Link></p>
+            <p><a target="_blank" href=${process.env.DOMAIN}/activate/user/${userId}>Click here to activate</a></p>
             <p>Regards,</p>
             <p>Application Team</p>
             </form>`
