@@ -1,12 +1,9 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
-import {useNavigate} from "react-router-dom";
 
 dotenv.config();
 
 export function sendVerificationMail({toMailId,userId}){
-
-    let navigate= useNavigate();
 
     return new Promise((res,rej) => {
         const transporter = nodemailer.createTransport({
